@@ -13,6 +13,15 @@
 
 </div>
 
+#### 启动指南
+
+```vue
+//初始化
+npm install
+//启动
+npm run dev
+```
+
 #### Commit规范
 
 

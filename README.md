@@ -17,13 +17,12 @@
 
 ```vue
 //初始化
-npm install
+npm install --legacy-peer-deps
 //启动
 npm run dev
 ```
 
 #### Commit规范
-
 
 ```
 <type>(<scope>): <subject>（YYYY-MM-DD）
@@ -47,6 +46,6 @@ npm run dev
 
 - scope(可选)
 
-  【scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。例如在Angular，可以是location，browser，compile，compile，rootScope， ngHref，ngClick，ngView等。如果你的修改影响了不止一个scope，你可以使用*代替。】
+  【scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。例如在Angular，可以是location，browser，compile，compile，rootScope， ngHref，ngClick，ngView等。如果你的修改影响了不止一个scope，你可以使用\*代替。】
 
 - subject(必须)【subject是commit目的的简短描述，不超过50个字符。】

@@ -1,6 +1,9 @@
 import { UserState } from '@/store/modules/user/types'
 import axios from 'axios'
 import type { RouteRecordNormalized } from 'vue-router'
+import { USER_SERVER_BASE_URL } from './baseUrl'
+
+const baseUrl = USER_SERVER_BASE_URL
 
 export interface LoginData {
   identityType: number
@@ -19,7 +22,7 @@ export interface LoginRes {
   token: string
 }
 export function login(data: LoginData): Promise<HttpResponse<LoginRes>> {
-  return axios.post('/api/login', data)
+  return axios.post(`${baseUrl}/login`, data)
 }
 
 export function logout() {

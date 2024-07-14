@@ -1,17 +1,8 @@
 import { getToken } from '@/utils/auth'
-import type { DescData } from '@arco-design/web-vue/es/descriptions/interface'
 import axios from 'axios'
+import { USER_SERVER_BASE_URL } from './baseUrl'
 
-export interface PolicyRecord {
-  id: string
-  number: number
-  name: string
-  contentType: 'img' | 'horizontalVideo' | 'verticalVideo'
-  filterType: 'artificial' | 'rules'
-  count: number
-  status: 'online' | 'offline'
-  createdTime: string
-}
+const baseUrl = USER_SERVER_BASE_URL
 
 export interface UserAuth {
   id: number
@@ -32,16 +23,6 @@ export interface UserAuthListRes {
   total: number
 }
 
-export interface PolicyParams extends Partial<PolicyRecord> {
-  current: number
-  pageSize: number
-}
-
-export interface PolicyListRes {
-  list: PolicyRecord[]
-  total: number
-}
-
 export interface HttpResponse<T = unknown> {
   flag: boolean
   msg: string
@@ -50,7 +31,7 @@ export interface HttpResponse<T = unknown> {
 }
 
 export function AuditAccountPageList(params: UserAuthParams) {
-  return axios.post<UserAuthListRes>('/api/audit/account', params, {
+  return axios.post<UserAuthListRes>(`${baseUrl}/audit/account`, params, {
     headers: {
       Authorization: getToken(), // 设置授权头
       // 添加其他需要的请求头
@@ -59,7 +40,7 @@ export function AuditAccountPageList(params: UserAuthParams) {
 }
 
 export function AcceptAudit({ uid }: { uid: string }): Promise<HttpResponse<string>> {
-  return axios.get('/api/audit/acceptAccount', {
+  return axios.get(`${baseUrl}/audit/acceptAccount`, {
     params: { uid }, // 参数简写形式
     headers: {
       Authorization: getToken(), // 设置授权头
@@ -69,35 +50,11 @@ export function AcceptAudit({ uid }: { uid: string }): Promise<HttpResponse<stri
 }
 
 export function RejectAudit({ uid }: { uid: string }): Promise<HttpResponse<string>> {
-  return axios.get('/api/audit/rejectAccount', {
+  return axios.get(`${baseUrl}/audit/rejectAccount`, {
     params: { uid }, // 参数简写形式
     headers: {
       Authorization: getToken(), // 设置授权头
       // 添加其他需要的请求头
     },
   })
-}
-
-
-export interface ServiceRecord {
-  id: number
-  title: string
-  description: string
-  name?: string
-  actionType?: string
-  icon?: string
-  data?: DescData[]
-  enable?: boolean
-  expires?: boolean
-}
-export function queryInspectionList() {
-  return axios.get('/api/list/quality-inspection')
-}
-
-export function queryTheServiceList() {
-  return axios.get('/api/list/the-service')
-}
-
-export function queryRulesPresetList() {
-  return axios.get('/api/list/rules-preset')
 }

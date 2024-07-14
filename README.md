@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Arco Design Logo" width="200" src="http://localhost:8081/image/biz-link-logo.svg"/>
+  <img alt="Arco Design Logo" width="200" src="http://localhost:8081/biz-common/image/biz-link-logo.svg"/>
 
 <br />
 

@@ -19,7 +19,7 @@
           <div class="menu-wrapper">
             <div class="left-side">
               <a-space>
-                <img alt="logo" src="http://localhost:8081/image/biz-link-logo.svg" />
+                <img alt="logo" src="http://localhost:8081/biz-common/image/biz-link-logo.svg" />
                 <a-typography-title>企业智联</a-typography-title>
               </a-space>
             </div>

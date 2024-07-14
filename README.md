@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Arco Design Logo" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
+  <img alt="Arco Design Logo" width="200" src="http://localhost:8081/image/biz-link-logo.svg"/>
 
 <br />
 
@@ -16,10 +16,7 @@
 #### 启动指南
 
 ```vue
-//初始化
-npm install --legacy-peer-deps
-//启动
-npm run dev
+//初始化 npm install --legacy-peer-deps //启动 npm run dev
 ```
 
 #### Commit规范

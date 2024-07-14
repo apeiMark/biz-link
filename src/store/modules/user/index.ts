@@ -1,4 +1,4 @@
-import { LoginData, getUserInfo, login as userLogin, logout as userLogout } from '@/api/user'
+import { HttpResponse, LoginData, LoginRes, getUserInfo, login as userLogin, logout as userLogout } from '@/api/user'
 import { clearToken, setToken } from '@/utils/auth'
 import { removeRouteListener } from '@/utils/route-listener'
 import { defineStore } from 'pinia'
@@ -58,13 +58,20 @@ const useUserStore = defineStore('user', {
     // Login
     async login(loginForm: LoginData) {
       try {
-        const res = await userLogin(loginForm)
-       /* eslint-disable no-console */
-        console.log("res: ",JSON.stringify(res))
+        const res: HttpResponse<LoginRes> = await userLogin(loginForm)
+        /* eslint-disable no-console */
+        console.log('res: ', JSON.stringify(res))
+        console.log('flag: ', res.flag)
+        console.log('token: ', res.data.token)
+
+        if (!res || res.flag === false) {
+          const errorMsg = res.msg
+          throw new Error(errorMsg)
+        }
         setToken(res.data.token)
       } catch (err) {
         clearToken()
-        throw err
+        throw err // 重新抛出错误以便在调用处捕获
       }
     },
     logoutCallBack() {

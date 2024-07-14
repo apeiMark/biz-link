@@ -1,6 +1,6 @@
-import Mock from 'mockjs'
-import setupMock, { successResponseWrap } from '@/utils/setup-mock'
 import { PostData } from '@/types/global'
+import setupMock, { successResponseWrap } from '@/utils/setup-mock'
+import Mock from 'mockjs'
 
 setupMock({
   setup() {

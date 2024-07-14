@@ -4,7 +4,7 @@ import { Message, Modal } from '@arco-design/web-vue'
 import axios from 'axios'
 
 export interface HttpResponse<T = unknown> {
-  status: number
+  flag: boolean
   msg: string
   code: number
   data: T
@@ -39,7 +39,7 @@ axios.interceptors.response.use(
   (response: any) => {
     const res = response.data
     // if the custom code is not 20000, it is judged as an error.
-    if (res.code !== 20000) {
+    if (res.code !== 200) {
       Message.error({
         content: res.msg || 'Error',
         duration: 5 * 1000,

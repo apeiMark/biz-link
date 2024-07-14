@@ -35,7 +35,7 @@ module.exports = {
     },
   },
   rules: {
-    'prettier/prettier': 1,
+    'prettier/prettier': 'off',
     'vue/no-reserved-component-names': 0,
     // Vue: Recommended rules to be closed or modify
     'vue/require-default-prop': 0,

@@ -8,6 +8,9 @@ import localeMonitor from '@/views/dashboard/monitor/locale/en-US'
 import localeCardList from '@/views/list/card/locale/en-US'
 import localeSearchTable from '@/views/list/search-table/locale/en-US'
 
+import localeAccountAudit from '@/views/system/account-audit/locale/en-US'
+import localeSystemCardList from '@/views/system/card/locale/en-US'
+
 import localeGroupForm from '@/views/form/group/locale/en-US'
 import localeStepForm from '@/views/form/step/locale/en-US'
 
@@ -34,6 +37,7 @@ export default {
   'menu.server.workplace': 'Workplace-Server',
   'menu.server.monitor': 'Monitor-Server',
   'menu.list': 'List',
+  'menu.system': 'System',
   'menu.result': 'Result',
   'menu.exception': 'Exception',
   'menu.form': 'Form',
@@ -52,6 +56,8 @@ export default {
   ...localeMonitor,
   ...localeSearchTable,
   ...localeCardList,
+  ...localeSystemCardList,
+  ...localeAccountAudit,
   ...localeStepForm,
   ...localeGroupForm,
   ...localeBasicProfile,

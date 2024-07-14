@@ -5,7 +5,11 @@ const isLogin = () => {
 }
 
 const getToken = () => {
-  return localStorage.getItem(TOKEN_KEY)
+  const token = localStorage.getItem(TOKEN_KEY)
+  if (token && token.startsWith('Bearer ')) {
+    return token.slice(7) // 去掉 "Bearer " 前缀
+  }
+  return token
 }
 
 const setToken = (token: string) => {

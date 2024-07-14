@@ -19,10 +19,7 @@
           <div class="menu-wrapper">
             <div class="left-side">
               <a-space>
-                <img
-                  alt="logo"
-                  src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/dfdba5317c0c20ce20e64fac803d52bc.svg~tplv-49unhts6dw-image.image"
-                />
+                <img alt="logo" src="http://localhost:8081/image/biz-link-logo.svg" />
                 <a-typography-title>企业智联</a-typography-title>
               </a-space>
             </div>

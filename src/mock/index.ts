@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
-import './user'
 import './message-box'
+import './user'
 
 import '@/views/dashboard/workplace/mock'
 /** simple */
@@ -9,6 +9,9 @@ import '@/views/dashboard/monitor/mock'
 
 import '@/views/list/card/mock'
 import '@/views/list/search-table/mock'
+
+import '@/views/system/account-audit/mock'
+import '@/views/system/card/mock'
 
 import '@/views/form/step/mock'
 

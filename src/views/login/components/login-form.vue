@@ -47,7 +47,6 @@
 </template>
 
 <script lang="ts" setup>
-import type { LoginData } from '@/api/user'
 import useLoading from '@/hooks/loading'
 import { useUserStore } from '@/store'
 import { Message } from '@arco-design/web-vue'
@@ -65,8 +64,8 @@ const userStore = useUserStore()
 
 const loginConfig = useStorage('login-config', {
   rememberPassword: true,
-  username: 'admin', // 演示默认值
-  password: 'admin', // demo default value
+  username: '', // 演示默认值
+  password: '', // demo default value
 })
 const userInfo = reactive({
   username: loginConfig.value.username,
@@ -78,7 +77,8 @@ const handleSubmit = async ({ errors, values }: { errors: Record<string, Validat
   if (!errors) {
     setLoading(true)
     try {
-      await userStore.login(values as LoginData)
+      // await userStore.login(values as LoginData)
+      await userStore.login({ identityType: 1, identifier: userInfo.username, certificate: userInfo.password })
       const { redirect, ...othersQuery } = router.currentRoute.value.query
       router.push({
         name: (redirect as string) || 'Workplace',

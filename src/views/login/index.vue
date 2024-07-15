@@ -7,21 +7,39 @@
     <LoginBanner />
     <div class="content">
       <div class="content-inner">
-        <LoginForm />
+        <transition name="slide-fade" mode="out-in">
+          <component :is="currentForm" @switchToRegister="showRegisterForm" @switchToLogin="showLoginForm" />
+        </transition>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import LoginBanner from './components/banner.vue'
 import LoginForm from './components/login-form.vue'
+import RegisterForm from './components/register-form.vue'
 
 export default defineComponent({
   components: {
     LoginBanner,
     LoginForm,
+    RegisterForm,
+  },
+  setup() {
+    const currentForm = ref('LoginForm')
+    const showRegisterForm = () => {
+      currentForm.value = 'RegisterForm'
+    }
+    const showLoginForm = () => {
+      currentForm.value = 'LoginForm'
+    }
+    return {
+      currentForm,
+      showRegisterForm,
+      showLoginForm,
+    }
   },
 })
 </script>
@@ -68,5 +86,15 @@ export default defineComponent({
     color: var(--color-fill-1);
     font-size: 20px;
   }
+}
+
+/* 添加动画效果 */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to /* .slide-fade-leave-active in <2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>

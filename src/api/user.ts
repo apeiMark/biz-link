@@ -18,11 +18,25 @@ export interface HttpResponse<T = unknown> {
   data: T
 }
 
+export interface RegisterData {
+  identityType: number
+  identifier: string
+  certificate: string
+}
+
 export interface LoginRes {
   token: string
 }
+
+export interface RegisterRes {
+  uid: string
+}
 export function login(data: LoginData): Promise<HttpResponse<LoginRes>> {
   return axios.post(`${baseUrl}/login`, data)
+}
+
+export function register(data: RegisterData): Promise<HttpResponse<RegisterRes>> {
+  return axios.post(`${baseUrl}/register`, data)
 }
 
 export function logout() {

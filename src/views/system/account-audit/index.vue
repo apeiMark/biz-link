@@ -58,14 +58,11 @@
       </a-row>
       <a-divider style="margin-top: 0" />
       <a-row style="margin-bottom: 16px">
+        ``
         <a-col :span="12">
           <a-space>
             <a-upload action="/">
-              <template #upload-button>
-                <a-button>
-                  {{ $t('accountAudit.operation.import') }}
-                </a-button>
-              </template>
+              <template #upload-button></template>
             </a-upload>
           </a-space>
         </a-col>
@@ -177,7 +174,6 @@ import cloneDeep from 'lodash/cloneDeep'
 import Sortable from 'sortablejs'
 import { computed, nextTick, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-
 
 type SizeProps = 'mini' | 'small' | 'medium' | 'large'
 type Column = TableColumnData & { checked?: true }
@@ -385,7 +381,7 @@ const acceptAudit = async (record: UserAuth) => {
     const data: HttpResponse<string> = await AcceptAudit({ uid: record.uid })
     if (data.flag) {
       Message.success('审核已通过')
-      search();
+      search()
     } else {
       Message.error('审核操作失败')
     }
@@ -404,7 +400,7 @@ const rejectAudit = async (record: UserAuth) => {
     console.log(JSON.stringify(data))
     if (data.flag) {
       Message.success('审核已驳回')
-      search();
+      search()
     } else {
       Message.error('审核操作失败')
     }

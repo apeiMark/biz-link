@@ -6,7 +6,7 @@
     <a-form ref="loginForm" :model="userInfo" class="login-form" layout="vertical" @submit="handleSubmit">
       <a-form-item
         field="username"
-        :rules="[{ required: true, message: $t('login.form.userName.errMsg') }]"
+        :rules="[{ required: true, message: $t('login.form.userName.nullErrMsg') }]"
         :validate-trigger="['change', 'blur']"
         hide-label
       >
@@ -18,7 +18,7 @@
       </a-form-item>
       <a-form-item
         field="password"
-        :rules="[{ required: true, message: $t('login.form.password.errMsg') }]"
+        :rules="[{ required: true, message: $t('login.form.password.nullErrMsg') }]"
         :validate-trigger="['change', 'blur']"
         hide-label
       >
@@ -38,7 +38,7 @@
         <a-button type="primary" html-type="submit" long :loading="loading">
           {{ $t('login.form.login') }}
         </a-button>
-        <a-button type="text" long class="login-form-register-btn">
+        <a-button type="text" long class="login-form-register-btn" @click="$emit('switchToRegister')">
           {{ $t('login.form.register') }}
         </a-button>
       </a-space>
@@ -52,6 +52,7 @@ import { useUserStore } from '@/store'
 import { Message } from '@arco-design/web-vue'
 import { ValidatedError } from '@arco-design/web-vue/es/form/interface'
 import { useStorage } from '@vueuse/core'
+import { Md5 } from 'ts-md5'
 import { reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -77,8 +78,13 @@ const handleSubmit = async ({ errors, values }: { errors: Record<string, Validat
   if (!errors) {
     setLoading(true)
     try {
+      // 对密码进行 MD5 加密
+      // 定义MD5对象
+      const md5: any = new Md5()
+      md5.appendAsciiStr(userInfo.password)
+      const md5Password = md5.end()
       // await userStore.login(values as LoginData)
-      await userStore.login({ identityType: 1, identifier: userInfo.username, certificate: userInfo.password })
+      await userStore.login({ identityType: 1, identifier: userInfo.username, certificate: md5Password })
       const { redirect, ...othersQuery } = router.currentRoute.value.query
       router.push({
         name: (redirect as string) || 'Workplace',

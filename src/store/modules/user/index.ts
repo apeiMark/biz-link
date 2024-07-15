@@ -60,10 +60,6 @@ const useUserStore = defineStore('user', {
       try {
         const res: HttpResponse<LoginRes> = await userLogin(loginForm)
         /* eslint-disable no-console */
-        console.log('res: ', JSON.stringify(res))
-        console.log('flag: ', res.flag)
-        console.log('token: ', res.data.token)
-
         if (!res || res.flag === false) {
           const errorMsg = res.msg
           throw new Error(errorMsg)

@@ -3,6 +3,7 @@ import localeLogin from '@/views/login/locale/en-US'
 
 import localeWorkplace from '@/views/dashboard/workplace/locale/en-US'
 /** simple */
+import localeMonitorConference from '@/views/conference/monitor/locale/en-US'
 import localeMonitor from '@/views/dashboard/monitor/locale/en-US'
 
 import localeCardList from '@/views/list/card/locale/en-US'
@@ -54,6 +55,7 @@ export default {
   ...localeWorkplace,
   /** simple */
   ...localeMonitor,
+  ...localeMonitorConference,
   ...localeSearchTable,
   ...localeCardList,
   ...localeSystemCardList,

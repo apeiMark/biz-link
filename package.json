@@ -36,6 +36,7 @@
     "vue": "^3.4.29",
     "vue-echarts": "^6.7.3",
     "vue-i18n": "^9.13.1",
+    "vue-iframe": "^0.0.0",
     "vue-router": "4"
   },
   "devDependencies": {

@@ -8,23 +8,23 @@
         <img :src="userInfo.avatar" />
       </a-avatar>
       <a-typography-title :heading="6" style="margin: 0">
-        {{ userInfo.name }}
+        {{ userInfo.nickName }}
       </a-typography-title>
       <div class="user-msg">
         <a-space :size="18">
           <div>
             <icon-user />
-            <a-typography-text>{{ userInfo.jobName }}</a-typography-text>
+            <a-typography-text>{{ userInfo.gender === 0 ? '女' : '男' }}</a-typography-text>
           </div>
           <div>
-            <icon-home />
+            <icon-email />
             <a-typography-text>
-              {{ userInfo.organizationName }}
+              {{ userInfo.email }}
             </a-typography-text>
           </div>
           <div>
-            <icon-location />
-            <a-typography-text>{{ userInfo.locationName }}</a-typography-text>
+            <icon-phone />
+            <a-typography-text>{{ userInfo.mobile }}</a-typography-text>
           </div>
         </a-space>
       </div>

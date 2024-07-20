@@ -1,38 +1,31 @@
-import setupMock, { failResponseWrap, successResponseWrap } from '@/utils/setup-mock'
+import setupMock, { successResponseWrap } from '@/utils/setup-mock'
 import Mock from 'mockjs'
 
-import { MockParams } from '@/types/mock'
-import { isLogin } from '@/utils/auth'
+import USER_SERVER_BASE_URL from '@/api/baseUrl'
 
 setupMock({
   setup() {
     // Mock.XHR.prototype.withCredentials = true;
-
-    // 用户信息
-    Mock.mock(new RegExp('/api/user/info'), () => {
-      if (isLogin()) {
-        const role = window.localStorage.getItem('userRole') || 'admin'
-        return successResponseWrap({
-          name: '王立群',
-          avatar: 'https://i.gtimg.cn/club/item/face/img/2/15922_100.gif',
-          email: 'wangliqun@email.com',
-          job: 'frontend',
-          jobName: '前端艺术家',
-          organization: 'Frontend',
-          organizationName: '前端',
-          location: 'beijing',
-          locationName: '北京',
-          introduction: '人潇洒，性温存',
-          personalWebsite: 'https://www.arco.design',
-          phone: '150****0000',
-          registrationDate: '2013-05-10 12:10:00',
-          accountId: '15012312300',
-          certification: 1,
-          role,
-        })
-      }
-      return failResponseWrap(null, '未登录', 50008)
-    })
+    const baseUrl = USER_SERVER_BASE_URL
+    // // 用户信息
+    // Mock.mock(new RegExp(`${baseUrl}/info`), () => {
+    //   if (isLogin()) {
+    //     const role = window.localStorage.getItem('userRole') || 'admin'
+    //     return successResponseWrap({
+    //       uid: '181703456786',
+    //       nickName: 'apei',
+    //       avatar: 'https://i.gtimg.cn/club/item/face/img/2/15922_100.gif',
+    //       email: 'wangliqun@email.com',
+    //       gender: 1,
+    //       birthday: '2013-05-10',
+    //       signature: '这个人很懒，什么都没有留下',
+    //       mobile: '13576184616',
+    //       createTime: '2013-05-10 12:10:00',
+    //       role,
+    //     })
+    //   }
+    //   return failResponseWrap(null, '未登录', 50008)
+    // })
 
     // // 登录
     // Mock.mock(new RegExp('/api/user/login'), (params: MockParams) => {

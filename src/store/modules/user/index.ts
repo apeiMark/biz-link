@@ -1,5 +1,5 @@
 import { HttpResponse, LoginData, LoginRes, getUserInfo, login as userLogin, logout as userLogout } from '@/api/user'
-import { clearToken, setToken } from '@/utils/auth'
+import { clearToken, getToken, setToken } from '@/utils/auth'
 import { removeRouteListener } from '@/utils/route-listener'
 import { defineStore } from 'pinia'
 import useAppStore from '../app'
@@ -7,21 +7,15 @@ import { UserState } from './types'
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({
-    name: undefined,
+    uid: undefined,
+    nickName: undefined,
     avatar: undefined,
-    job: undefined,
-    organization: undefined,
-    location: undefined,
+    gender: undefined,
+    birthday: undefined,
+    signature: undefined,
+    mobile: undefined,
     email: undefined,
-    introduction: undefined,
-    personalWebsite: undefined,
-    jobName: undefined,
-    organizationName: undefined,
-    locationName: undefined,
-    phone: undefined,
-    registrationDate: undefined,
-    accountId: undefined,
-    certification: undefined,
+    createTime: undefined,
     role: '',
   }),
 
@@ -50,8 +44,9 @@ const useUserStore = defineStore('user', {
 
     // Get user's information
     async info() {
-      const res = await getUserInfo()
-
+      const token = getToken()
+      const res = await getUserInfo({token: token! })
+      console.log(res.data)
       this.setInfo(res.data)
     },
 

@@ -1,62 +1,6 @@
 <template>
-  <div class="container">
-    <Breadcrumb :items="['menu.system', 'menu.system.accountAudit']" />
-    <a-card class="general-card" :title="$t('menu.system.accountAudit')">
-      <a-row>
-        <a-col :flex="1">
-          <a-form :model="formModel" :label-col-props="{ span: 6 }" :wrapper-col-props="{ span: 18 }" label-align="left">
-            <a-row :gutter="16">
-              <a-col :span="8">
-                <a-form-item field="uid" :label="$t('accountAudit.form.uid')">
-                  <a-input v-model="formModel.uid" :placeholder="$t('accountAudit.form.uid.placeholder')" />
-                </a-form-item>
-              </a-col>
-              <a-col :span="8">
-                <a-form-item field="identityType" :label="$t('accountAudit.form.identityType')">
-                  <a-select
-                    v-model="formModel.identityType"
-                    :options="identityTypeOptions"
-                    :placeholder="$t('accountAudit.form.selectDefault')"
-                  />
-                </a-form-item>
-              </a-col>
-              <a-col :span="8">
-                <a-form-item field="identifier" :label="$t('accountAudit.form.identifier')">
-                  <a-input v-model="formModel.identifier" :placeholder="$t('accountAudit.form.identifier.placeholder')" />
-                </a-form-item>
-              </a-col>
-              <a-col :span="8">
-                <a-form-item field="status" :label="$t('accountAudit.form.status')">
-                  <a-select v-model="formModel.status" :options="statusOptions" :placeholder="$t('accountAudit.form.selectDefault')" />
-                </a-form-item>
-              </a-col>
-              <a-col :span="8">
-                <a-form-item field="createTime" :label="$t('accountAudit.form.createTime')">
-                  <a-range-picker v-model="formModel.createTime" style="width: 100%" />
-                </a-form-item>
-              </a-col>
-            </a-row>
-          </a-form>
-        </a-col>
-        <a-divider style="height: 84px" direction="vertical" />
-        <a-col :flex="'86px'" style="text-align: right">
-          <a-space direction="vertical" :size="18">
-            <a-button type="primary" @click="search">
-              <template #icon>
-                <icon-search />
-              </template>
-              {{ $t('accountAudit.form.search') }}
-            </a-button>
-            <a-button @click="reset">
-              <template #icon>
-                <icon-refresh />
-              </template>
-              {{ $t('accountAudit.form.reset') }}
-            </a-button>
-          </a-space>
-        </a-col>
-      </a-row>
-      <a-divider style="margin-top: 0" />
+  <div>
+    <a-card class="general-card" :title="$t('monitor.popularContent')">
       <a-row style="margin-bottom: 16px">
         <a-col :span="12">
           <a-space>
@@ -116,14 +60,14 @@
         </template>
         <template #operations="{ record }">
           <div class="button-container">
-            <a-button class="accept" type="primary" size="small" @click="acceptAudit(record)">
+            <a-button v-permission="['admin']" class="accept" type="primary" size="small" @click="acceptAudit(record)">
               {{ $t('accountAudit.columns.operations.accept') }}
             </a-button>
-            <a-popconfirm content="你确定要驳回该账号的审核吗?" okText="确定" cancelText="取消" type="warning" @ok="rejectAudit(record)">
-              <a-button class="reject"  size="small">
+            <!-- <a-popconfirm content="你确定要驳回该账号的审核吗?" okText="确定" cancelText="取消" type="warning" @ok="rejectAudit(record)">
+              <a-button class="reject" v-permission="['admin']" size="small">
                 {{ $t('accountAudit.columns.operations.reject') }}
               </a-button>
-            </a-popconfirm>
+            </a-popconfirm> -->
           </div>
         </template>
       </a-table>
@@ -199,27 +143,6 @@ const columns = computed<TableColumnData[]>(() => [
   {
     title: t('accountAudit.columns.uid'),
     dataIndex: 'uid',
-  },
-  {
-    title: t('accountAudit.columns.identityType'),
-    dataIndex: 'identityType',
-    render: ({ record }) => {
-      const identityTypeOption = identityTypeOptions.value.find((option) => option.value === record.identityType)
-      return identityTypeOption ? identityTypeOption.label : ''
-    },
-  },
-  {
-    title: t('accountAudit.columns.identifier'),
-    dataIndex: 'identifier',
-    slotName: 'identifier',
-  },
-  {
-    title: t('accountAudit.columns.status'),
-    dataIndex: 'status',
-    render: ({ record }) => {
-      const statusOption = statusOptions.value.find((option) => option.value === record.status)
-      return statusOption ? statusOption.label : ''
-    },
   },
   {
     title: t('accountAudit.columns.createTime'),

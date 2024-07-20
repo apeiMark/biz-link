@@ -1,3 +1,4 @@
+import { RoleType } from '@/store/modules/user/types'
 import axios from 'axios'
 
 export interface MyProjectRecord {
@@ -40,12 +41,15 @@ export function saveUserInfo() {
 }
 
 export interface BasicInfoModel {
+  uid: string
   email: string
-  nickname: string
-  countryRegion: string
-  area: string
-  address: string
-  profile: string
+  nickName: string
+  gender: number
+  mobile: string
+  createTime: string
+  signature: string
+  birthday: string,
+  role: RoleType
 }
 
 export interface EnterpriseCertificationModel {

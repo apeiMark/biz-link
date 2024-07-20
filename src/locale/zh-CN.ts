@@ -3,6 +3,7 @@ import localeLogin from '@/views/login/locale/zh-CN'
 
 import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN'
 /** simple */
+import localeMonitorConference from '@/views/conference/monitor/locale/zh-CN'
 import localeMonitor from '@/views/dashboard/monitor/locale/zh-CN'
 
 import localeCardList from '@/views/list/card/locale/zh-CN'
@@ -38,6 +39,7 @@ export default {
   'menu.server.monitor': '实时监控-服务端',
   'menu.list': '列表页',
   'menu.system': '系统管理',
+  'menu.conference': '视频会议',
   'menu.result': '结果页',
   'menu.exception': '异常页',
   'menu.form': '表单页',
@@ -54,6 +56,7 @@ export default {
   ...localeWorkplace,
   /** simple */
   ...localeMonitor,
+  ...localeMonitorConference,
   ...localeSearchTable,
   ...localeCardList,
   ...localeSystemCardList,

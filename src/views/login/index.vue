@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="logo">
-      <img alt="logo" src="http://localhost:8081/image/biz-link-logo.svg" />
+      <img alt="logo" src="http://localhost:8081/biz-common/image/biz-link-logo.svg" />
       <div class="logo-text">企业智联</div>
     </div>
     <LoginBanner />

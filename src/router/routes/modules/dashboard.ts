@@ -25,7 +25,7 @@ const DASHBOARD: AppRouteRecordRaw = {
     /** simple */
     {
       path: 'monitor',
-      name: 'Monitor',
+      name: 'Monitor1',
       component: () => import('@/views/dashboard/monitor/index.vue'),
       meta: {
         locale: 'menu.dashboard.monitor',

@@ -2,9 +2,9 @@ import { UserState } from '@/store/modules/user/types'
 import { getToken } from '@/utils/auth'
 import axios from 'axios'
 import type { RouteRecordNormalized } from 'vue-router'
-import { USER_SERVER_BASE_URL } from './baseUrl'
+import baseUrls from './baseUrl'
 
-const baseUrl = USER_SERVER_BASE_URL
+const baseUrl = baseUrls.USER_SERVER_BASE_URL
 
 export interface LoginData {
   identityType: number

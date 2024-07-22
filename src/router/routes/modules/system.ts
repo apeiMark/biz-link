@@ -22,16 +22,16 @@ const SYSTEM: AppRouteRecordRaw = {
         roles: ['*'],
       },
     },
-    {
-      path: 'card',
-      name: 'SystemCard',
-      component: () => import('@/views/system/card/index.vue'),
-      meta: {
-        locale: 'menu.system.cardList',
-        requiresAuth: true,
-        roles: ['*'],
-      },
-    },
+    // {
+    //   path: 'card',
+    //   name: 'SystemCard',
+    //   component: () => import('@/views/system/card/index.vue'),
+    //   meta: {
+    //     locale: 'menu.system.cardList',
+    //     requiresAuth: true,
+    //     roles: ['*'],
+    //   },
+    // },
   ],
 }
 

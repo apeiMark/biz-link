@@ -1,4 +1,4 @@
-import NProgress from 'nprogress' // progress bar
+import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'
 import { createRouter, createWebHashHistory } from 'vue-router'
 

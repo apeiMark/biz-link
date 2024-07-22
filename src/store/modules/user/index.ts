@@ -46,7 +46,6 @@ const useUserStore = defineStore('user', {
     async info() {
       const token = getToken()
       const res = await getUserInfo({token: token! })
-      console.log(res.data)
       this.setInfo(res.data)
     },
 

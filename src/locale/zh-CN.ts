@@ -12,6 +12,9 @@ import localeSearchTable from '@/views/list/search-table/locale/zh-CN'
 import localeAccountAudit from '@/views/system/account-audit/locale/zh-CN'
 import localeSystemCardList from '@/views/system/card/locale/zh-CN'
 
+import localeFileList from '@/views/file/file-list/locale/zh-CN'
+import localeFileLibrary from '@/views/file/library/locale/zh-CN'
+
 import localeGroupForm from '@/views/form/group/locale/zh-CN'
 import localeStepForm from '@/views/form/step/locale/zh-CN'
 
@@ -38,6 +41,7 @@ export default {
   'menu.server.workplace': '工作台-服务端',
   'menu.server.monitor': '实时监控-服务端',
   'menu.list': '列表页',
+  'menu.file': '云文档',
   'menu.system': '系统管理',
   'menu.conference': '视频会议',
   'menu.result': '结果页',
@@ -63,6 +67,8 @@ export default {
   ...localeAccountAudit,
   ...localeStepForm,
   ...localeGroupForm,
+  ...localeFileLibrary,
+  ...localeFileList,
   ...localeBasicProfile,
   ...localeDataAnalysis,
   ...localeMultiDAnalysis,

@@ -7,11 +7,12 @@ import '@/views/dashboard/workplace/mock'
 /** simple */
 import '@/views/dashboard/monitor/mock'
 
-import '@/views/list/card/mock'
 import '@/views/list/search-table/mock'
 
 import '@/views/system/account-audit/mock'
-import '@/views/system/card/mock'
+
+import '@/views/file/file-list/mock'
+import '@/views/file/library/mock'
 
 import '@/views/form/step/mock'
 

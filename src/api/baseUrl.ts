@@ -1,3 +1,6 @@
-export const USER_SERVER_BASE_URL = '/api/user-server'
+const baseUrls = {
+  USER_SERVER_BASE_URL: '/api/user-server',
+  FILE_SERVER_BASE_URL: '/api/file-server'
+};
 
-export default USER_SERVER_BASE_URL;
+export default baseUrls;

@@ -1,8 +1,8 @@
 import { getToken } from '@/utils/auth'
 import axios from 'axios'
-import { USER_SERVER_BASE_URL } from './baseUrl'
+import baseUrls from './baseUrl'
 
-const baseUrl = USER_SERVER_BASE_URL
+const baseUrl = baseUrls.USER_SERVER_BASE_URL
 
 export interface UserAuth {
   id: number
